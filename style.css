@@ -166,7 +166,6 @@ body {
   width: 100%;
   height: 100%;
   pointer-events: none;
-  background: url('https://i.imgur.com/jG6kJvI.png') repeat center;
   opacity: 0;
   transition: 1s;
   mix-blend-mode: screen;
