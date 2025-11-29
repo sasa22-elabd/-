@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الحساس الحقيقي — MQ-135</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <h1>الحساس الحقيقي MQ-135</h1>
+    <p>قراءات مباشرة من الحساس</p>
+  </div>
+  <div class="controls">
+    <button onclick="window.location.href='index.html'" class="control-btn">عودة</button>
+  </div>
+</header>
+
+<main class="grid">
+  <section class="card big">
+    <h2>قراءات الحساس الحقيقي</h2>
+    <ul class="sensors">
+      <li>الدخان: <strong id="rSmoke">0</strong></li>
+      <li>CO₂: <strong id="rCO">0</strong></li>
+      <li>PM2.5: <strong id="rPM">0</strong></li>
+      <li>درجة الحرارة: <strong id="rTemp">0</strong>°C</li>
+      <li>الرطوبة: <strong id="rHum">0</strong>%</li>
+      <li>MQ-135: <strong id="rMQ">غير متصل</strong></li>
+    </ul>
+  </section>
+
+  <section class="card chart-card">
+    <h3>الرسم البياني الزمني لـ AQI الحساس الحقيقي</h3>
+    <canvas id="realChart"></canvas>
+  </section>
+
+  <section class="card log-card">
+    <h3>سجل الأحداث</h3>
+    <div id="realLog" class="logBox"></div>
+  </section>
+</main>
+
+<script src="sensor.js"></script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>نظام ذكي لمراقبة جودة الهواء — V3 Advanced</title>
+
+<!-- حقوق الملكية -->
+<meta name="author" content="مصطفى العبد — Mustafa Elabd">
+<meta name="developer" content="مصطفى العبد">
+<meta name="copyright" content="© 2025 — Developed by Mustafa Elabd">
+<meta name="description" content="نظام ذكي متقدم لمراقبة جودة الهواء — تصميم وبرمجة: مصطفى العبد">
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- علامة مائية داخل الكود (لن تظهر للمستخدم) -->
+<!-- 
+===========================================
+ Developed & Designed by: مصطفى العبد
+ Project: Smart Environmental Air Control V3
+ Year: 2025
+===========================================
+-->
+</head>
+<body>
+
+<!-- شاشة بوت متقدمة -->
+<div id="bootScreen" class="boot-screen">
+  <div class="boot-content">
+    <h1>Cyber Environmental Control</h1>
+    <p id="bootText">Initializing System...</p>
+    <div class="loader"></div>
+    <button id="enterBtn" class="enter-btn">ابدأ النظام</button>
+  </div>
+</div>
+
+<div class="app">
+
+<header class="topbar">
+  <div class="brand">
+    <h1>نظام ذكي لمراقبة جودة الهواء</h1>
+    <p>Smart Environmental Air Control — V3 Advanced</p>
+  </div>
+  <div class="controls">
+    <button id="startBtn" class="control-btn accent">تشغيل</button>
+    <button id="stopBtn" class="control-btn">إيقاف</button>
+    <button id="snapshotBtn" class="control-btn">لقطة</button>
+    <button id="goToSensor" class="control-btn">الحساس الحقيقي</button>
+  </div>
+</header>
+
+<main class="grid">
+
+  <section class="card big">
+    <div class="card-head">
+      <h2>مؤشر جودة الهواء (AQI)</h2>
+      <div class="mode">
+        <button id="autoBtn" class="mode-btn active">تلقائي</button>
+        <button id="manualBtn" class="mode-btn">يدوي</button>
+      </div>
+    </div>
+
+    <div class="aqi-wrap">
+      <div id="aqiCircle" class="aqi-circle">
+        <div class="aqi-inner">
+          <span id="aqiValue">0</span>
+          <small>A Q I</small>
+        </div>
+      </div>
+
+      <div class="status-box">
+        <p id="aqiStatus">—</p>
+        <p class="hint" id="hintText">النظام جاهز…</p>
+        <div class="fan" id="fan">🌀</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h3>قراءات الحساس</h3>
+    <ul class="sensors">
+      <li>الدخان: <strong id="smokeVal">0</strong></li>
+      <li>ثاني أكسيد الكربون CO₂: <strong id="coVal">0</strong></li>
+      <li>PM2.5: <strong id="pmVal">0</strong></li>
+      <li>درجة الحرارة: <strong id="tempVal">0</strong>°C</li>
+      <li>الرطوبة: <strong id="humVal">0</strong>%</li>
+      <li>MQ-135: <strong id="mqVal">غير متصل</strong></li>
+    </ul>
+
+    <div class="manual-controls" id="manualControls" style="display:none;">
+      <label>ضبط AQI يدوي:
+        <input id="manualRange" type="range" min="0" max="300" value="50"/>
+      </label>
+    </div>
+  </section>
+
+  <section class="card chart-card">
+    <h3>الرسم البياني الزمني لـ AQI</h3>
+    <canvas id="aqiChart"></canvas>
+  </section>
+
+  <section class="card log-card">
+    <h3>سجل الأحداث</h3>
+    <div id="logBox" class="logBox"></div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <small>
+    © 2025 — Developed by <strong>مصطفى العبد</strong>  
+    | Smart Environmental System V3  
+  </small>
+</footer>
+
+<div class="smoke" id="smokeLayer"></div>
+
+<script src="app.js"></script>
+</body>
+</html>

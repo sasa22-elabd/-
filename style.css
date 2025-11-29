@@ -1,0 +1,291 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Cairo', sans-serif;
+}
+
+body {
+  background: #1e1e2f;
+  color: #eee;
+  transition: 0.5s;
+}
+
+/* ===================== */
+/* 🔹 TOP BAR */
+/* ===================== */
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: #252536;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+}
+
+.topbar h1 {
+  font-weight: 800;
+  font-size: 1.3rem;
+}
+
+.topbar p {
+  font-weight: 400;
+  font-size: 0.85rem;
+  color: #aaa;
+}
+
+/* ===================== */
+/* 🔹 BUTTONS */
+/* ===================== */
+
+.control-btn {
+  margin-left: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  background: #444;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.control-btn.accent {
+  background: #8a2be2;
+}
+
+.control-btn:hover {
+  opacity: 0.8;
+}
+
+/* ===================== */
+/* 🔹 GRID + CARDS */
+/* ===================== */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.card {
+  background: #2a2a3d;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.card.big {
+  grid-column: span 2;
+}
+
+.card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+/* ===================== */
+/* 🔹 MODE BUTTONS */
+/* ===================== */
+
+.mode-btn {
+  padding: 0.3rem 0.7rem;
+  border-radius: 6px;
+  border: none;
+  background: #555;
+  color: #fff;
+  cursor: pointer;
+  margin-left: 0.3rem;
+}
+
+.mode-btn.active {
+  background: #8a2be2;
+}
+
+/* ===================== */
+/* 🔹 AQI CIRCLE */
+/* ===================== */
+
+.aqi-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.aqi-circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: conic-gradient(#8a2be2 0deg, #eee 0deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 1s;
+}
+
+.aqi-inner {
+  text-align: center;
+}
+
+.status-box {
+  text-align: center;
+  position: relative;
+}
+
+/* ===================== */
+/* 🔹 FAN */
+/* ===================== */
+
+.fan {
+  font-size: 2.5rem;
+  display: none;
+  animation: spin 1s linear infinite;
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ===================== */
+/* 🔹 SMOKE */
+/* ===================== */
+
+.smoke {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: url('https://i.imgur.com/jG6kJvI.png') repeat center;
+  opacity: 0;
+  transition: 1s;
+  mix-blend-mode: screen;
+}
+
+/* ===================== */
+/* 🔹 LOG BOX */
+/* ===================== */
+
+.logBox {
+  height: 150px;
+  overflow: auto;
+  background: #1c1c2a;
+  padding: 0.5rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+/* ===================== */
+/* 🔹 BOOT SCREEN */
+/* ===================== */
+
+.boot-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #1e1e2f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 999;
+  transition: 0.5s;
+}
+
+.loader {
+  width: 60px;
+  height: 60px;
+  border: 6px solid #444;
+  border-top: 6px solid #8a2be2;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 1rem;
+}
+
+.enter-btn {
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  background: #8a2be2;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.enter-btn:hover {
+  opacity: 0.8;
+}
+
+/* ===================== */
+/* 🔹 SHAKE (ALERT MODE) */
+/* ===================== */
+
+body.shake {
+  animation: shake 0.3s infinite;
+}
+
+@keyframes shake {
+  0%   { transform: translateX(0); }
+  25%  { transform: translateX(4px); }
+  50%  { transform: translateX(-4px); }
+  75%  { transform: translateX(4px); }
+  100% { transform: translateX(0); }
+}
+
+/* ===================== */
+/* 📱 MEDIA QUERIES FOR MOBILE */
+/* ===================== */
+
+@media (max-width: 600px) {
+
+  .topbar {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.3rem;
+  }
+
+  .control-btn {
+    padding: 0.4rem 0.8rem;
+    margin-top: 0.5rem;
+  }
+
+  .aqi-circle {
+    width: 120px;
+    height: 120px;
+  }
+
+  .fan {
+    font-size: 2rem;
+    top: -40px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card.big {
+    grid-column: span 1;
+  }
+
+  .logBox {
+    height: 120px;
+    font-size: 0.8rem;
+  }
+
+  body.shake {
+    animation: shake 0.25s infinite;
+  }
+}
